@@ -10,6 +10,12 @@ app.get('/', function (req, res) {
   res.send(page);
 })
 app.get('/about.html', function (req, res) {
+  var page = "<html>" +
+              "<body>" +
+              "<h1>About.html</h1>" +
+              "</body>" +
+              "</html>"
+  res.send(page);
   console.log('HELLO billie');
 })
 
