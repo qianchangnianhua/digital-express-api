@@ -1,10 +1,11 @@
 var express = require('express')
 var app = express()
 
-app.get('/', function (req, res) {
+app.get('/:name', function (req, res) {
+  var username = req.params.name;
   var page = "<html>" +
               "<body>" +
-              "<h1>index.html</h1>" +
+              "<h1>" + username + "的购物车" + "</h1>" +
               "</body>" +
               "</html>"
   res.send(page);
