@@ -11,7 +11,7 @@ app.get('/:name', function (req, res) {
   res.send(page);
 })
 app.post('/:name',function(req,res){
-  res.send('mimi');
+ res.send("a POST request received" + req.params.name)
 })
 app.get('/about.html', function (req, res) {
   var page = "<html>" +
