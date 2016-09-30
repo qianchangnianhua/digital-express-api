@@ -9,6 +9,8 @@
   "author": "helen wang",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "build": "^0.1.4",
     "express": "^4.14.0"
   }
 }

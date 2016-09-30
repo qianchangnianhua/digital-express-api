@@ -27,3 +27,10 @@
 
 ## express 路由
 . 跑在服务器上，响应客户端发出的request,决定哪部分后台代码要被执行
+
+---
+
+####    curl -H "Content-Type: application/json" -X POST -d
+'{"title":"myTitle","content":"myContent"}' http://localhost:3000/posts
+
+#####  https://coding.net/u/happypeter/p/react-express-api-demo/git
