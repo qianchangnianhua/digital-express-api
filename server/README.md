@@ -34,3 +34,34 @@
 '{"title":"myTitle","content":"myContent"}' http://localhost:3000/posts
 
 #####  https://coding.net/u/happypeter/p/react-express-api-demo/git
+
+---
+## 将数据保存到数据库的步骤
+
+1.确保有数据，req.body.title
+
+2.建立代码和数据库的连接。
+  mongoose.connect('mongo:xxx');
+
+3.创建Schema,在models/post.js
+
+4.创建model module.exports = mongoose.model('Post', PostSchema);
+
+5.导入 Post model
+
+6.实例化 Post model 得到post这个对象
+
+7.保存 post 到数据库
+
+---
+
+### strikingly.com
+### wordpress
+---
+重定向，redirect
+
+## 前后台分离
+
+. 后台只负责json数据，不负责html/css,前后台沟通的数据格式是json,前台请求数据的方式:发ajax
+
+第一步：搭建React-webpack环境
