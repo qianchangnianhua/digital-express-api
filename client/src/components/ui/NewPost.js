@@ -22,6 +22,13 @@ class NewPost extends Component {
   }
   newPost(data){
     axios.post('http://localhost:3000/posts', data)
+    //POST /posts according to REST api structrue
+    //例如一篇博客当做 resource，资源
+    //GET /posts 列出所有博客
+    //GET /posts/:post_id 打开一篇博客
+    //POST /posts/:post_id
+    //PUT /posts/:post_id 更新一篇博客
+    //DELETE /posts/:post_id 删除一篇博客
     .then( res => {
       console.log(res.data.message);
       this.context.router.push('/');
