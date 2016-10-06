@@ -65,3 +65,16 @@
 . 后台只负责json数据，不负责html/css,前后台沟通的数据格式是json,前台请求数据的方式:发ajax
 
 第一步：搭建React-webpack环境
+
+### 违背了同源策略
+. 客户端和服务器端域名相同，端口号也要相同
+
+. HTTP 报头（header)
+. Access-Control-Allow-Origin
+访问权限允许源头
+. Access-Control-Allow-Origin :*
+报头设置为开源
+
+. curl -i https://api.github.com/qianting/orgs
+查看头部及内容
+ -I只查看头部
