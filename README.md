@@ -80,7 +80,31 @@ use digicity-express-api
 db.dropDatabase()
 ```
 
+#  为什么要记录电子版的笔记
 
+1. 第一个原因：使用 markdown 格式美观
+
+  Beauty is your ablity to tame complexity
+2. 第二个原因：便于更新
+
+```
+atom查找用ctrl+shift+f 英文格式查找
+
+```
+
+ 3.第三个原因，有 git/github 控制，永远不会丢失
+
+
+ 4.第四个原因，便于搜索。
+
+ # 用JS代码操作mongodb
+
+ 我们主要基于一个 JS 库的帮助，Mongoose ，它可以 作为一个 npm 的包來安装。
+
+解释一下，一个 JS 库 就是一组 ××JS 接口 ××的集合。库，英文对 library 。
+
+![](https://raw.githubusercontent.com/happypeter/digicity-express-api/master/doc/img/002-mongoose.png)
+```
 Mongodb 数据库操作
 
 开启 Mongo Shell
@@ -104,9 +128,51 @@ $ db.posts.insert({title: 'myTitle', content: 'myContent'})
 $ db.posts.find()
 ```
 
+### 下面我们来动手做一个 express+mongoose 的小 demo 。
+
+## 先写一个最简单的 express 程序
+
+- index.js 如下：
+
+```
+var express = require('express');
+var app = express();
+
+app.post('/posts', function(req, res){
+  console.log('hello');
+});
+
+app.listen(3000, function(){
+  console.log('running on port 3000.....');
+});
+```
+- 相应的 curl 测试命令是
+
+```
+curl --request POST localhost:3000/posts
+
+```
+如果可以在运行 node index.js 的位置看到 hello 表示我们这一步胜利完成。
 
 
-hello Ada Lovelace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hello Ada Lovelace 世界上第一位程序员
 
 ![](https://github.com/happypeter/digicity-express-api/blob/master/doc/img/001-ada.png?raw=true)
 
