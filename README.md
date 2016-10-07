@@ -52,8 +52,34 @@ mkdir -p data/db
 
 ```
 
+### 7.修改一条记录（了解内容）
 
 ```
+db.posts.update({_id: ObjectId('xxx')}, {$set: {title: 'mongodb'}})
+
+```
+
+### 8.删除一条记录
+
+```
+db.posts.remove({_id: ObjectId('xxx')})
+```
+
+### 9.删除 posts 集合中的所有记录
+
+```
+db.posts.remove({})
+
+```
+
+### 10.删除数据库
+
+假设我们的数据库叫做 digicity-express-api
+```
+use digicity-express-api
+db.dropDatabase()
+```
+
 
 Mongodb 数据库操作
 
@@ -77,3 +103,13 @@ $ db.posts.insert({title: 'myTitle', content: 'myContent'})
 
 $ db.posts.find()
 ```
+
+
+
+hello Ada Lovelace
+
+![](https://github.com/happypeter/digicity-express-api/blob/master/doc/img/001-ada.png?raw=true)
+
+护眼图片
+
+![](https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1475819981432&di=84193e75e903c01633b6aa2a395bdcfa&imgtype=jpg&src=http%3A%2F%2Fp15.qhimg.com%2Fbdm%2F1366_768_85%2Fd%2F_open360%2Ffresh1228%2F18.jpg)
