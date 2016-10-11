@@ -41,19 +41,25 @@ export default class PostList extends Component {
         padding:'5px 10px',
         cursor:'pointer',
       },
-      btn:{
+      link:{
         textDecoration:'none',
         fontSize:'18px',
         color:'#fff',
-        width:'40px',
+        width:'4em',
         textAlign:'center',
-        lineHeight:'20px',
-        backgroundColor:'deeppink',
-        borderRadius:'8px',
-        margin:'0px 0px',
+        lineHeight:'2em',
+        backgroundColor:'#00bcd4',
+        borderRadius:'5px',
+        margin:'10px auto',
         display:'inline-block',
         padding:'5px 5px',
         cursor:'pointer',
+        marginLeft:'5px'
+      },
+      a:{
+        position:'absolute',
+        right:'16px',
+        top:'20px'
       }
     }
   }
@@ -73,7 +79,10 @@ export default class PostList extends Component {
       return (
         <div style={styles.content} key={post._id}>
           <div style={styles.title}>{post.title}</div>
-          <Link to={`/post/${post._id}`} style={styles.btn}>查看</Link>
+          <div style={styles.a}>
+          <Link to={`/post/${post._id}`} style={styles.link}>查看</Link>
+          <Link to={`/posts/${post._id}/edit`} style={styles.link}>编辑</Link>
+        </div>
         </div>
       )
     }, this.state.posts);
