@@ -3,6 +3,8 @@ import map from 'lodash/fp/map';
 import axios from 'axios';
 import { Link } from 'react-router';
 import Settings from '../../settings';
+import filter from 'lodash/fp/filter';
+
 
 
 export default class PostList extends Component {
@@ -12,6 +14,7 @@ export default class PostList extends Component {
       posts: []
     };
   }
+
   getStyles() {
     return {
       content: {
@@ -74,12 +77,22 @@ export default class PostList extends Component {
       // console.log(this.state.posts);
     });
   }
-  handleClick(value) {
-    console.log("----handleClick!!!");
-    axios.delete(`${Settings.host}/posts/${value}`).then(res => {
-      console.log('deleted!');
-    })
-  }
+  filterPosts(id) {
+  const posts = filter((post) => {
+    return post._id !== id
+  }, this.state.posts);
+
+  this.setState({ posts: posts })
+}
+handleClick(value) {
+   // REST
+   console.log("----handleClick!!!");
+   axios.delete(`${Settings.host}/posts/${value}`).then(res => {
+     console.log('filering..!');
+     this.filterPosts(value);
+     // 筛除已经删除的这个 post
+   })
+ }
   render() {
     const styles = this.getStyles();
     const postList = map((post) => {

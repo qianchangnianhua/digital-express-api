@@ -18,8 +18,14 @@ var Post = require('./models/post');
      })
    })
    app.delete('/posts/:id', function(req, res) {
-     console.log(req.params.id);
-     res.send('hello');
+     Post.findById({_id: req.params.id}, function(err, post) {
+      console.log(post);
+      post.remove(function(){
+        res.json({
+         message: '文章删除成功了！'
+        });
+      });
+    });
    })
    app.put('/posts/:id', function(req, res) {
      Post.findById({_id: req.params.id}, function(err, post) {
