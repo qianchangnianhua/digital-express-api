@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import map from 'lodash/fp/map';
 import axios from 'axios';
 import { Link } from 'react-router';
+import Settings from '../../settings';
 
 
 export default class PostList extends Component {
@@ -73,6 +74,12 @@ export default class PostList extends Component {
       // console.log(this.state.posts);
     });
   }
+  handleClick(value) {
+    console.log("----handleClick!!!");
+    axios.delete(`${Settings.host}/posts/${value}`).then(res => {
+      console.log('deleted!');
+    })
+  }
   render() {
     const styles = this.getStyles();
     const postList = map((post) => {
@@ -82,8 +89,9 @@ export default class PostList extends Component {
           <div style={styles.a}>
           <Link to={`/post/${post._id}`} style={styles.link}>查看</Link>
           <Link to={`/posts/${post._id}/edit`} style={styles.link}>编辑</Link>
+          <Link to={``} style={styles.link} onClick={this.handleClick.bind(this, post._id)}>删除</Link>
         </div>
-        </div>
+      </div>
       )
     }, this.state.posts);
     return(
